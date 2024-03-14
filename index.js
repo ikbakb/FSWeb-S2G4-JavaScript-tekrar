@@ -39,6 +39,7 @@ const sayilar = [
 function KareninAlani(kenaruzunlugu) {
   return kenaruzunlugu * kenaruzunlugu;
 }
+console.log(KareninAlani(10))
 
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -50,10 +51,10 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yariCap) {
+  return 2 * pi * yariCap
 }
-
+console.log(CemberinCevresi(5))
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 /* 	GÖREV 2:  
@@ -64,9 +65,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yariCap, pi) {
+  return pi * Math.pow(yariCap,2)
 }
+console.log(CemberinAlani(15, pi))
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -87,6 +89,7 @@ function CemberinAlani(/* kodlar buraya */) {
 		💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 */
 
+
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
 let ucetambolunenler,
@@ -99,27 +102,62 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+let enBuyuk = Math.max(...sayilar);
+let enKucuk = Math.min(...sayilar);
 
 // 3b çözümü:
 
-/* kodlar buraya */
+let uceTamBolunenler = []
+sayilar.forEach((sayi) => {
+   if (sayi % 3 === 0) {
+    uceTamBolunenler.push(sayi);
+   }
+})
+
 
 // 3c çözümü:
 
-/* kodlar buraya */
+let uceBolunenlerintoplami = uceTamBolunenler.reduce((toplam, number) => toplam + number, 0)
 
 // 3d çözümü
 
-/* kodlar buraya */
+let besYuzdenKucukSayilar = sayilar.filter((sayi) => sayi < 500)
 
 // 3e çözümü
 
-/* kodlar buraya */
+let siraliSayilar = []  
+siraliSayilar.push(...besYuzdenKucukSayilar.sort((a, b) => a - b))
 
 // 3f çözümü
 
-/* kodlar buraya */
+let tekrarEdenSayilar = [];
+let tekrarlar = {};
+for (number of sayilar) {
+  if (tekrarlar[number]) {
+    tekrarlar[number]++;
+  } else {
+    tekrarlar[number] = 1
+  }
+}
+
+for (let sayi in tekrarlar) {
+  if (tekrarlar[sayi] > 1) {
+    let tekrarMetin= `${sayi} sayısı ${tekrarlar[sayi]} kere tekrar edilmiştir`
+    tekrarEdenSayilar.push(tekrarMetin);
+  }
+}
+
+
+
+/*console.log(enBuyuk)
+console.log(enKucuk)
+console.log(uceTamBolunenler)
+console.log(uceBolunenlerintoplami)
+console.log(besYuzdenKucukSayilar)
+console.log(siraliSayilar)
+console.log(tekrarEdenSayilar)*/
+
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
